@@ -1,5 +1,12 @@
 # WINDOWS Pen Testing scripts and tutorials
 
+## Recon
+
+Enum4Linux will get you Domains, Workgroups, Usernames, etc.
+```bash
+enum4linux -a [-u USER -p PASS] IP
+```
+
 ## WinRM 
 
 ### File transfer
