@@ -59,7 +59,12 @@ You could also try to access it anonymously with
 smbclient //IP/SHARE 
 ```
 
+Sometimes you can access the SYSVOL share, if it is not cleaned up it may contain some xml files in the Policy folder which contains password hashes
+
 
 ## Kerberos
 
 Checkout Impacket scripts
+
+if you have access rights on the machine you also can use mimikatz. 
+Upload it and try it out. 
