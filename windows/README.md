@@ -44,3 +44,22 @@ sessions -i 0
 ```
 
 to get to the first created session
+
+
+## SAMBA
+
+```bash
+smbclient -L //IP/ 
+```
+
+just hit enter for anonymous access. 
+You could also try to access it anonymously with
+
+```bash
+smbclient //IP/SHARE 
+```
+
+
+## Kerberos
+
+Checkout Impacket scripts
