@@ -7,6 +7,26 @@ Enum4Linux will get you Domains, Workgroups, Usernames, etc.
 enum4linux -a [-u USER -p PASS] IP
 ```
 
+Impackets lookupsid will give you also the users if enum4linux may not work properly
+
+```bash
+lookupsid.py IP
+```
+
+## Get User Password Hashes
+
+Impackets GetNPUsers tries several attacks to retrieve password hashes
+
+```bash
+GetNPUsers.py IP
+```
+
+Further on Impackets secretdump can retrieve secret password hashes which only privileged accounts can retrieve, or due to a misconfiguration.
+```bash
+secretdump.py DOMAIN/USER:PWD@IP 
+```
+
+
 ## WinRM 
 
 ### File transfer
