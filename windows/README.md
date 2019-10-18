@@ -124,3 +124,37 @@ Afterwards you can dump any process by using
 
 Download it and analyze it. If Firefox is running, it might be possible that passwods are send plain text. 
 
+## Shells
+
+Next to evil-winrm, meterpreter shells and reverse shells you can get access using psexec.py 
+
+```bash
+psexec.py DOMAIN/USER:PASSWORD@IP 
+```
+
+or if you cannot crack the NTLM Hash you can access directly using the hash with the pass the hash method (https://en.wikipedia.org/wiki/Pass_the_hash)
+
+```bash
+psexec.py -hashes LMHASH:NTHASH DOMAIN/USER@IP
+```
+
+## Privilege Escalation
+
+### Mimikatz
+Mimikatz has several options, from exploiting kerberos over pass the hash.
+Look at https://github.com/gentilkiwi/mimikatz/wiki
+
+### BloodHound and aclpwn 
+see above
+
+### Enumeration (not windows specific)
+
+#### Dump Processes
+see above
+
+#### MITM
+Getting a local mitm using a proxy for example, we can read traffic and ideally getting passwords in clear. 
+Use own adjusted scripts depending on the software. 
+
+#### enumerate whats on a machine
+see https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ for several PS commands to check the server for services, files etc.
