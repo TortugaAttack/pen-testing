@@ -126,7 +126,7 @@ Download it and analyze it. If Firefox is running, it might be possible that pas
 
 ## Shells
 
-Next to evil-winrm, meterpreter shells and reverse shells you can get access using psexec.py 
+Next to evil-winrm, meterpreter shells and reverse shells you can get access using impackets psexec.py 
 
 ```bash
 psexec.py DOMAIN/USER:PASSWORD@IP 
@@ -158,3 +158,18 @@ Use own adjusted scripts depending on the software.
 
 #### enumerate whats on a machine
 see https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ for several PS commands to check the server for services, files etc.
+
+#### CVEs 
+Check for old CVEs with Sherlocks PowerShell script
+upload Sherlock.ps1 to the server
+
+```bash
+Import-Module .\Sherlock.ps1
+```
+
+or use the newer version Watson.
+upload the Watson_Net45.exe or Watson_Net35.exe to the server and execute
+
+```bash 
+.\Watson_Net45.exe 
+```
