@@ -2,7 +2,7 @@
 
 ## Return Oriented Programming and Buffer Overflow
 
-Basic Attack Idea (x64):
+### Basic Attack Idea (x64):
 
 needed: A binary which is vulnurable to Buffer Overflow. 
 
@@ -75,6 +75,14 @@ Be aware that the leak adress will change each execution, so we have to add for 
 
 
 The whole thing is pretty much doable in a simple pythin pwn tool script
+
+### Enumeration checks
+Check for programs having the s bit set using (https://docs.oracle.com/cd/E19683-01/816-4883/6mb2joatb/index.html): 
+
+```
+find directory -user root -perm -4000 -exec ls -ldb {} \;
+```
+
 
 ### Putting User Input in .data 
 
