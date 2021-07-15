@@ -140,6 +140,17 @@ psexec.py -hashes LMHASH:NTHASH DOMAIN/USER@IP
 
 ## Privilege Escalation
 
+## JuicyPotato 
+
+Use JuicyPotato if you have a service account 
+
+check priveleges in a powershell command with
+
+```
+whoami /priv
+```
+
+if Impersonate or WithToken is enabled. escalate
 
 ### WinPEAS
 
