@@ -140,6 +140,15 @@ psexec.py -hashes LMHASH:NTHASH DOMAIN/USER@IP
 
 ## Privilege Escalation
 
+
+### WinPEAS
+
+Use WinPEAS for enumeration
+
+### Using AlwaysInstalledElevated misconfig
+
+https://steflan-security.com/windows-privilege-escalation-alwaysinstallelevated-policy/
+
 ### Mimikatz
 Mimikatz has several options, from exploiting kerberos over pass the hash.
 Look at https://github.com/gentilkiwi/mimikatz/wiki
