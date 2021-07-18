@@ -193,3 +193,9 @@ upload the Watson_Net45.exe or Watson_Net35.exe to the server and execute
 ```bash 
 .\Watson_Net45.exe 
 ```
+
+# Blue Team
+
+ https://redcanary.com/blog/investigating-powershell-attacks/ 
+ 
+ ViperMonkey for vba analazing
