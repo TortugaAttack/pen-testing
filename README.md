@@ -4,6 +4,12 @@ Pen Testing Scripts and install stuff
 
 ## Attacks
 
+### SNMP
+scan via UDP on port 161 
+
+snmpwalk -v 1 (or 2c) -c $FUZZ (public is often)  IP
+check OIDs and check for right side OIDS
+
 ### Pass the Hash
 https://en.wikipedia.org/wiki/Pass_the_hash
 
